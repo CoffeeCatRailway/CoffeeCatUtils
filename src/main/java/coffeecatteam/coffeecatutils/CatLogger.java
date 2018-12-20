@@ -68,21 +68,31 @@ public class CatLogger {
      * Print an empty line
      */
     public void print() {
-        print("");
+        print("", true);
     }
 
     /**
      * Print an empty line
      */
     public void print(Throwable throwable) {
-        print(throwable.getMessage());
+        print(throwable.getMessage(), false);
     }
 
     /**
      * @param msg Print a message to console
      */
     public void print(Object msg) {
+        print(msg, false);
+    }
+
+    /**
+     * @param msg Print a message to console
+     * @param empty Print a empty string/message
+     */
+    public void print(Object msg, boolean empty) {
         String msgString = "[" + loggerName + ":" + getTime() + "] " + String.valueOf(msg);
+        if (empty)
+            msgString = "";
         System.out.println(msgString);
         if (OUTPUT_LOG) {
             try {
