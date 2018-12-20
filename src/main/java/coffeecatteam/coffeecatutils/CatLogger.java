@@ -15,6 +15,15 @@ public class CatLogger {
 
     private String loggerName;
 
+    private static File logFile;
+
+    private static boolean OUTPUT_LOG = true;
+    private static String OUTPUT_PATH = "./logs/log_";
+
+    public static String TF_DATE_TIME = "dd-MM-yyyy_HH-mm-ss";
+    public static String TF_TIME_DATE = "HH-mm-ss_dd-MM-yyyy";
+    private static String TIME_FORMAT = TF_DATE_TIME;
+
     public CatLogger() {
         this(Thread.currentThread());
     }
@@ -25,16 +34,9 @@ public class CatLogger {
 
     public CatLogger(String loggerName) {
         this.loggerName = loggerName;
+        if (logFile == null)
+            init();
     }
-
-    private static File logFile;
-
-    private static boolean OUTPUT_LOG = true;
-    private static String OUTPUT_PATH = "./logs/log_";
-
-    public static String TF_DATE_TIME = "dd-MM-yyyy_HH-mm-ss";
-    public static String TF_TIME_DATE = "HH-mm-ss_dd-MM-yyyy";
-    private static String TIME_FORMAT = TF_DATE_TIME;
 
     /**
      * Initialize the logger
