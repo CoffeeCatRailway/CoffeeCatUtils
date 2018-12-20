@@ -1,5 +1,7 @@
 package coffeecatteam.coffeecatutils;
 
+import coffeecatteam.coffeecatutils.logger.CatLogger;
+import coffeecatteam.coffeecatutils.logger.CatLoggerUtils;
 import coffeecatteam.coffeecatutils.position.AABB;
 import coffeecatteam.coffeecatutils.position.Vector2D;
 
@@ -10,7 +12,7 @@ import coffeecatteam.coffeecatutils.position.Vector2D;
 public class CoffeeCatUtilsTester {
 
     public static void main(String[] args) {
-        CatLogger.init();
+        CatLoggerUtils.init();
         CatLogger logger = new CatLogger();
         logger.print("CatLogger initialized!");
         logger.print();
