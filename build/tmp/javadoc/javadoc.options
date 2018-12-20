@@ -1,0 +1,11 @@
+-classpath 'C:\\Users\\Duncan\\Documents\\IntelliJ Projects\\CoffeeCatUtils\\build\\classes\\java\\main;C:\\Users\\Duncan\\Documents\\IntelliJ Projects\\CoffeeCatUtils\\build\\resources\\main'
+-d 'C:\\Users\\Duncan\\Documents\\IntelliJ Projects\\CoffeeCatUtils\\build\\docs\\javadoc'
+-doctitle 'CoffeeCatUtils 0.3 API'
+-quiet 
+-windowtitle 'CoffeeCatUtils 0.3 API'
+'C:\\Users\\Duncan\\Documents\\IntelliJ Projects\\CoffeeCatUtils\\src\\main\\java\\coffeecatteam\\coffeecatutils\\io\\FileUtils.java'
+'C:\\Users\\Duncan\\Documents\\IntelliJ Projects\\CoffeeCatUtils\\src\\main\\java\\coffeecatteam\\coffeecatutils\\io\\FontLoader.java'
+'C:\\Users\\Duncan\\Documents\\IntelliJ Projects\\CoffeeCatUtils\\src\\main\\java\\coffeecatteam\\coffeecatutils\\Logger.java'
+'C:\\Users\\Duncan\\Documents\\IntelliJ Projects\\CoffeeCatUtils\\src\\main\\java\\coffeecatteam\\coffeecatutils\\NumberUtils.java'
+'C:\\Users\\Duncan\\Documents\\IntelliJ Projects\\CoffeeCatUtils\\src\\main\\java\\coffeecatteam\\coffeecatutils\\position\\AABB.java'
+'C:\\Users\\Duncan\\Documents\\IntelliJ Projects\\CoffeeCatUtils\\src\\main\\java\\coffeecatteam\\coffeecatutils\\position\\Vector2D.java'
