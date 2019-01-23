@@ -29,42 +29,79 @@ public class CatLogger {
     /**
      * Print an empty line
      */
-    public void print() {
-        print("", true);
+    public void println() {
+        print(MessageType.NONE, "");
     }
 
     /**
-     * Print an empty line
+     * Print an exception
      */
-    public void print(Throwable throwable) {
-        print(throwable.getMessage(), false);
+    public void error(Throwable throwable) {
+        print(MessageType.ERROR, throwable.getMessage());
+    }
+
+    /**
+     * @param msg Print a error message to console
+     */
+    public void error(Object msg) {
+        print(MessageType.ERROR, msg);
     }
 
     /**
      * @param msg Print a message to console
      */
-    public void print(Object msg) {
-        print(msg, false);
+    public void info(Object msg) {
+        print(MessageType.INFO, msg);
+    }
+
+    /**
+     * @param msg Print a warning message to console
+     */
+    public void warn(Object msg) {
+        print(MessageType.WARN, msg);
     }
 
     /**
      * @param msg   Print a message to console
-     * @param empty Print a empty string/message
      */
-    public void print(Object msg, boolean empty) {
-        String msgString = CatLoggerUtils.getPrefix(loggerName) + String.valueOf(msg);
-        if (empty)
-            msgString = "";
+    public void print(MessageType type, Object msg) {
+        String msgString = CatLoggerUtils.getPrefix(loggerName) + "[" + type + "] " + String.valueOf(msg);
 
         if (CatLoggerUtils.logFileIsNull())
             CatLoggerUtils.init();
 
-        System.out.println(msgString);
+        String border = "---------------" + type + "---------------";
+        switch (type) {
+            case NONE:
+                System.out.println();
+                break;
+            case INFO:
+                System.out.println(msgString);
+                writeLog(msgString);
+                break;
+            case WARN:
+                System.out.println(border);
+                writeLog(border);
+
+                System.out.println(msgString);
+                writeLog(msgString);
+                break;
+            case ERROR:
+                System.out.println(border);
+                writeLog(border);
+
+                System.out.println(msgString);
+                writeLog(msgString);
+                break;
+        }
+    }
+
+    private void writeLog(String msg) {
         if (CatLoggerUtils.OUTPUT_LOG) {
             try {
                 BufferedWriter writer = new BufferedWriter(new FileWriter(CatLoggerUtils.LOG_FILE, true));
-                writer.append(msgString);
-                if (msgString.contains("\\n") || msgString.contains("\n"))
+                writer.append(msg);
+                if (msg.contains("\\n") || msg.contains("\n"))
                     writer.newLine();
                 writer.newLine();
 
@@ -73,5 +110,9 @@ public class CatLogger {
                 e.printStackTrace();
             }
         }
+    }
+
+    private enum MessageType {
+        NONE, INFO, WARN, ERROR
     }
 }

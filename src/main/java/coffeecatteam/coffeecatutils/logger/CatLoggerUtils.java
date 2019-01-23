@@ -15,8 +15,8 @@ public class CatLoggerUtils {
     static boolean OUTPUT_LOG = true;
     static String OUTPUT_PATH = "./logs/log_";
 
-    public static String TF_DATE_TIME = "dd-MM-yyyy_HH-mm-ss";
-    public static String TF_TIME_DATE = "HH-mm-ss_dd-MM-yyyy";
+    public static String TF_DATE_TIME = "dd-MM-yyyy:HH-mm-ss";
+    public static String TF_TIME_DATE = "HH-mm-ss_dd:MM-yyyy";
     static String TIME_FORMAT = TF_TIME_DATE;
 
     public static void init() {
