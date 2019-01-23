@@ -60,6 +60,10 @@ public class Vector2D {
         return add(new Vector2D(amt, amt));
     }
 
+    public Vector2D add(double x, double y) {
+        return add(new Vector2D(x, y));
+    }
+
     /**
      * @param in Target vector to sub to in
      * @return Subtract of both vectors
@@ -72,6 +76,10 @@ public class Vector2D {
 
     public Vector2D sub(double amt) {
         return sub(new Vector2D(amt, amt));
+    }
+
+    public Vector2D sub(double x, double y) {
+        return sub(new Vector2D(x, y));
     }
 
     /**
@@ -88,6 +96,10 @@ public class Vector2D {
         return mult(new Vector2D(amt, amt));
     }
 
+    public Vector2D mult(double x, double y) {
+        return mult(new Vector2D(x, y));
+    }
+
     /**
      * @param in Target vector to divide to in
      * @return Divide of both vectors
@@ -100,6 +112,10 @@ public class Vector2D {
 
     public Vector2D div(double amt) {
         return div(new Vector2D(amt, amt));
+    }
+
+    public Vector2D div(double x, double y) {
+        return div(new Vector2D(x, y));
     }
 
     /**
@@ -132,8 +148,8 @@ public class Vector2D {
      * @return Copy of vector
      */
     public Vector2D copy() {
-        Vector2D v2 = new Vector2D(this.x, this.y);
-        return v2;
+        Vector2D vec = new Vector2D(this.x, this.y);
+        return vec;
     }
 
     /**
@@ -146,5 +162,15 @@ public class Vector2D {
 
         double distance = Math.sqrt(x * x + y * y);
         return distance;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Vector2D) {
+            Vector2D vec = (Vector2D) obj;
+            return vec.x == this.x && vec.y == this.y;
+        } else {
+            return false;
+        }
     }
 }
