@@ -14,22 +14,27 @@ public class CoffeeCatUtilsTester {
     public static void main(String[] args) {
         CatLoggerUtils.init();
         CatLogger logger = new CatLogger();
-        logger.print("CatLogger initialized!");
-        logger.print();
+        logger.info("CatLogger initialized!");
+        logger.println();
 
-        AABB aabb = new AABB(10, 10, 20, 10);
-        AABB aabb1 = new AABB(new Vector2D(15, 15), 20, 10);
-        logger.print(aabb.contains(aabb1));
-        logger.print("AABB");
+        int width = 20, height = 10;
+        Vector2D vector = new Vector2D(15, 15);
 
-        if (ArgUtils.hasArgument(args, "testArg"))
-            logger.print("ArgUtils");
+        AABB aabb = new AABB(10, 10, width, height);
+        AABB aabb1 = new AABB(vector, width, height);
+
+        logger.warn(aabb.contains(aabb1));
+        logger.info("AABB");
+
+        if (ArgUtils.hasArgument(args, "-testArg"))
+            logger.info("ArgUtils");
         else
-            logger.print("No ArgUtils");
-        logger.print();
+            logger.warn("No ArgUtils");
+        logger.println();
 
-        logger.print(NumberUtils.getRandomBoolean());
-        logger.print(NumberUtils.getRandomInt(10, 20));
-        logger.print("NumberUtils");
+        logger.info(NumberUtils.getRandomBoolean());
+        logger.info(NumberUtils.getRandomInt(10, 20));
+        logger.error(new Exception("Test Exception"));
+        logger.info("NumberUtils");
     }
 }
