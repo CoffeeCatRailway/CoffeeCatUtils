@@ -50,6 +50,14 @@ public class AABB {
         return height;
     }
 
+    public Vector2D getPos() {
+        return new Vector2D(x, y);
+    }
+
+    public void setPos(Vector2D pos) {
+        setPos((int) pos.x, (int) pos.y);
+    }
+
     public void setPos(int x, int y) {
         this.x = x;
         this.y = y;
@@ -90,6 +98,10 @@ public class AABB {
 
     public boolean contains(int x, int y) {
         return inside(x, y);
+    }
+
+    public boolean contains(Vector2D pos) {
+        return contains(pos.x, pos.y);
     }
 
     public boolean contains(AABB aabb) {
