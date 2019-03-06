@@ -1,5 +1,7 @@
 package coffeecatteam.coffeecatutils;
 
+import coffeecatteam.coffeecatutils.position.Vector2D;
+
 import java.util.Random;
 
 /**
@@ -120,5 +122,40 @@ public class NumberUtils {
         float to = toAbs + toMin;
 
         return to;
+    }
+
+    /**
+     * @param pointA Point a {@code Float}
+     * @param pointB Point b {@code Float}
+     * @param smoothness Smoothness
+     * @return Create a smooth movement between point a & point b
+     */
+    public static float lerp(float pointA, float pointB, float smoothness) {
+        return (1 - smoothness) * pointA + smoothness * pointB;
+    }
+
+    /**
+     * @param pointA Point a {@code Vector2D}
+     * @param pointB Point b {@code Vector2D}
+     * @param smoothness Smoothness
+     * @return Create a smooth movement between point a & point b
+     */
+    public static Vector2D lerp(Vector2D pointA, Vector2D pointB, float smoothness) {
+        Vector2D newVec = new Vector2D();
+        newVec.x = lerp((float) pointA.x, (float) pointB.x, smoothness);
+        newVec.y = lerp((float) pointA.y, (float) pointB.y, smoothness);
+        return newVec;
+    }
+
+    /**
+     * @param x1 X for point a {@code Float}
+     * @param y1 Y for point a {@code Float}
+     * @param x2 X for point b {@code Float}
+     * @param y2 Y for point b {@code Float}
+     * @param smoothness Smoothness
+     * @return Create a smooth movement between point a & point b
+     */
+    public static Vector2D lerp(float x1, float y1, float x2, float y2, float smoothness) {
+        return lerp(new Vector2D(x1, y1), new Vector2D(x2, y2), smoothness);
     }
 }
