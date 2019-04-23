@@ -6,8 +6,14 @@ package coffeecatteam.coffeecatutils;
  */
 public class ArgUtils {
 
-    public static boolean hasArgument(String[] args, String arg) {
-        for (String a : args) {
+    private static String[] ARGS;
+
+    public static void setARGS(String[] ARGS) {
+        ArgUtils.ARGS = ARGS;
+    }
+
+    public static boolean hasArgument(String arg) {
+        for (String a : ARGS) {
             String regex = ":";
             if (a.contains(regex))
                 a = a.split(regex)[0];
@@ -18,15 +24,15 @@ public class ArgUtils {
         return false;
     }
 
-    public static String getArgument(String[] args, String arg) {
+    public static String getArgument(String arg) {
         String value = null;
-        for (int i = 0; i < args.length; i++) {
-            if (hasArgument(args, arg)) {
+        for (int i = 0; i < ARGS.length; i++) {
+            if (hasArgument(arg)) {
                 String regex = ":";
-                String argName = args[i].split(regex)[0];
+                String argName = ARGS[i].split(regex)[0];
                 String argValue = null;
-                if (args[i].contains(regex))
-                    argValue = args[i].split(regex)[1];
+                if (ARGS[i].contains(regex))
+                    argValue = ARGS[i].split(regex)[1];
 
                 if (argName.equals(arg))
                     value = argValue;

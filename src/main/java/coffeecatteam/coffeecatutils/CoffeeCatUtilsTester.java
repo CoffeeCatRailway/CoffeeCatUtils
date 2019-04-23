@@ -13,6 +13,8 @@ public class CoffeeCatUtilsTester {
 
     public static void main(String[] args) {
         CatLoggerUtils.init();
+        ArgUtils.setARGS(args);
+
         CatLogger logger = new CatLogger();
         logger.info("CatLogger initialized!");
         logger.println();
@@ -26,7 +28,7 @@ public class CoffeeCatUtilsTester {
         logger.warn(aabb.contains(aabb1));
         logger.info("AABB");
 
-        if (ArgUtils.hasArgument(args, "-testArg"))
+        if (ArgUtils.hasArgument("-testArg"))
             logger.info("ArgUtils");
         else
             logger.warn("No ArgUtils");
