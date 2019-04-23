@@ -14,10 +14,7 @@ public class CatLoggerUtils {
 
     static boolean OUTPUT_LOG = true;
     static String OUTPUT_PATH = "./logs/log_";
-
-    public static String TF_DATE_TIME = "dd-MM-yyyy:HH-mm-ss";
-    public static String TF_TIME_DATE = "HH-mm-ss_dd:MM-yyyy";
-    static String TIME_FORMAT = TF_TIME_DATE;
+    public static String DATE_TIME = "dd-MM-yyyy_HH-mm-ss";
 
     public static void init() {
         LOG_FILE = new File(OUTPUT_PATH + getTime() + ".tutlog");
@@ -25,7 +22,7 @@ public class CatLoggerUtils {
     }
 
     static String getTime() {
-        SimpleDateFormat formatter = new SimpleDateFormat(TIME_FORMAT);
+        SimpleDateFormat formatter = new SimpleDateFormat(DATE_TIME);
         Date date = new Date();
         return formatter.format(date);
     }
@@ -40,7 +37,7 @@ public class CatLoggerUtils {
     }
 
     public static void setTimeFormat(String timeFormat) {
-        TIME_FORMAT = timeFormat;
+        DATE_TIME = timeFormat;
     }
 
     public static void setOutputLog(boolean outputLog) {
